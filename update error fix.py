@@ -11,6 +11,7 @@ while True: # You can use other stuff other than True
         
     except Exception as e: # If the update brings up an error; this stops the error from showing up at all
         print(e) # This prints out the error
+        # You can also use this space to run a save system or something like that which runs when the user closes the winodw or something like that...
         break # This just breaks the loop
 
 # Important!
