@@ -1,26 +1,56 @@
-import turtle # This imports the turtle module
+import turtle
+import tkinter
 
-wn = turtle.Screen() # We declared "wn" as a turtle window
+window = turtle.Screen() 
 
-player = turtle.Turtle() # This declares variable "Player" as a turtle object
+pen = turtle.Turtle() 
 
-while True: # You can use other stuff other than True
-    try: # Make sure to put all your looping code in this
-        wn.update() # This updates the window and every thing in it
-        player.right(30) # This just turns the turtle object aka "Player" to the right side in 30 degrees
-        
-    except Exception as e: # If the update brings up an error; this stops the error from showing up at all
-        print(e) # This prints out the error
-        # You can also use this space to run a save system or something like that which runs when the user closes the winodw or something like that...
-        break # This just breaks the loop
+while True:
+    try:
+        try: 
+            window.update()
+            pen.goto(0, 0)
+            pen.forward(30)
+            pen.right(30)
+            
+        except turtle.Terminator:
+            print("Terminator error!") # optional
+            break
+    except tkinter.TclError:
+        print("TclError error!") # optional
+        break
+    
+"""
 
-# Important!
-#-----------------------
+There are two common types of error that turtle
+makes when you close it's window while running a
+while loop. This error is caused due to an un-
+avoidable line of code 'wn.update()'. If you
+don't use it in the main loop, the turtle window
+(tkinter window) will not update, ie, it will
+freeze the window and won't update the canvas to
+which your program is drawing to. Now, you maybe
+asking 'What are two common errors?'. They are:
 
-"""(Im refering to line 13 here)I do understand that you will ask me, "Why would you wanna print out the error if we are trying to get rid of it in the first place!".
-I did that because people are not perfect and they could make errors in the codes that they right, if you make any error other than the update error, the window
-will just close and you will bhe left all confuced on what happened, that is why I printed out the error. This line (line 13) is only used for debugging purposes and 
-after you are done with you are done with your code (if you done the whole coding and you are going to publish the code to executable or anything else you can get rid of
-that print statement"""
+- turtle.Terminator error
+- tkinter.TclError error
 
-# Sorry if there was any spelling errors
+To understand this program you'll need prior
+knowledge on error handling (try and except)in
+python.
+
+PS. I've spotted a pattern in how these two er-
+rors vary from program to program. If the while
+loop gets interrupted when it was running
+'window.update()' line, it showed the error
+'turtle.Terminator'. While running any other
+pen related commands, it showed,
+'tkinter.TclError'. I don't know if this obser-
+vation will help anyone, but I just felt like
+mentioning it anyway.
+
+Code by: Sidharth S alias SidTheLoser.
+Written on or before 20-Nov-2020.
+Updated on 05-Aug-2022.
+
+"""
