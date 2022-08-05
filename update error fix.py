@@ -9,7 +9,6 @@ while True:
     try:
         try: 
             window.update()
-            pen.goto(0, 0)
             pen.forward(30)
             pen.right(30)
             
